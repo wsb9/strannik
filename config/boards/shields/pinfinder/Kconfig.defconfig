@@ -1,16 +1,10 @@
 if SHIELD_MARSLANDER_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Marslander"
+    default "PinFinder"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
     default y
-
-endif
-
-if SHIELD_MARSLANDER_RIGHT
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
-    default n
 
 endif
 
