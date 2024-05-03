@@ -12,10 +12,9 @@
 
 
 #define DEF 0
-// #define LWR 1
-// #define RSE 2
-// #define ADJ 38I
-#define ARROW 1
+#define CYRILLIC 1
+#define CYRILLIC_PUNC 2
+#define ARROW 3
 
 &lt { quick_tap_ms = <200>; };
 &mt { quick_tap_ms = <200>; };
@@ -44,6 +43,21 @@
             key-positions = <68 69>; 
         };
     };
+
+    macros {
+        to_eng: to_eng {
+            label = "to_eng";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to DEF>, <&kp MY_LANG_EN>;
+        };
+        to_rus: to_rus {
+            label = "to_rus";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to CYRILLIC>, <&kp MY_LANG_RU>;
+        };
+    };
     
     keymap {
         compatible = "zmk,keymap";
@@ -58,13 +72,45 @@
 // | LWIN | LALT | SPACE| LCTRL| RET  |                               | RSHFT| RET  | SPACE| RALT | RWIN |
 
             bindings = <
+    &kp ESC         &kp N1    &kp N2     &kp N3     &kp N4    &kp N5    &kp N6            &kp N7         &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC
+    &kp TAB         &kp SEMI  &kp LS(N2) &kp LS(N3) &kp P     &kp Y     &kp MY_COPY       &kp MY_REFRESH &kp F     &kp G     &kp C     &kp R     &kp L     &kp LBKT
+    &kp RET         &kp A     &kp O      &kp E      &kp U     &kp I     &kp MY_PASTE      &kp MY_BUILD   &kp D     &kp H     &kp T     &kp N     &kp S     &kp SQT
+    &kp RET         &kp SQT   &kp Q      &kp J      &kp K     &kp X                                      &kp B     &kp M     &kp W     &kp V     &kp Z     &kp BSLH
+    &to_eng         &kp LCTRL &kp LALT   &kp LWIN   &mo ARROW                                                      &mo ARROW &kp SPACE &kp SPACE &kp SPACE &to_rus
+                                                  &kp LSHIFT &kp LCTRL                  &kp RSHIFT &kp SPACE
+                                              &kp BSPC  &kp LWIN &kp LALT            &kp COMMA &kp DOT &kp SPACE              
+            >;
+        };// &[{}(= *)+]!#
+
+        cyrillic_layer {
+// -------------------------------------------------------------------------------------------------------
+// |  ESC |  &   |  [   |  {   |  }   |  (   |  =   |   |  *   |  )   |  +   |  ]   |  !   |  #   | BSPC |
+// |  TAB | SEMI |  ,   |  .   |  P   |  Y   |  _   |   |  _   |  F   |  G   |  C   |  R   |  L   |  /   |
+// |  RET |  A   |  O   |  E   |  U   |  I   |  _   |   |  _   |  D   |  H   |  T   |  N   |  S   |  -   |
+// | LSHFT|  '   |  Q   |  J   |  K   |  X   |                 |  B   |  M   |  W   |  V   |  Z   |  \   |
+// |  FN  | LCTRL| LALT | LWIN | SPACE|                               |  _   |  _   |  _   |  _   |  _   |
+// | LWIN | LALT | SPACE| LCTRL| RET  |                               | RSHFT| RET  | SPACE| RALT | RWIN |
+
+            bindings = <
     &kp ESC         &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6            &kp N7         &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC
     &kp TAB         &kp Q     &kp W     &kp E     &kp R     &kp T     &kp MY_COPY       &kp MY_REFRESH &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT
     &kp RET         &kp A     &kp S     &kp D     &kp F     &kp G     &kp MY_PASTE      &kp MY_BUILD   &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
-    &kp RET         &kp Z     &kp X     &kp C     &kp V     &kp B                                      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp BSLH
-    &kp MY_LANG_EN  &kp LCTRL &kp LALT  &kp LWIN  &mo ARROW                                                      &mo ARROW &kp SPACE &kp SPACE &kp SPACE &kp MY_LANG_RU
-                                                &kp LSHIFT &kp LCTRL                  &kp RSHIFT &kp SPACE
-                                            &kp BSPC  &kp LWIN &kp LALT            &kp COMMA &kp DOT &kp SPACE              
+    &kp RET         &kp Z     &kp X     &kp C     &kp V     &kp B                                      &kp BSLH  &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  
+    &trans          &kp LCTRL &kp LALT  &kp LWIN  &mo ARROW                                                      &mo ARROW &kp SPACE &kp SPACE &kp SPACE &trans
+                                                &kp LSHIFT &kp LCTRL                  &trans    &trans
+                                            &kp BSPC  &kp LWIN &kp LALT            &kp LS(N6) &kp LS(N7) &kp SPACE              
+            >;
+        };
+
+        cyrillic_punc_layer {
+            bindings = <
+    &trans    &trans    &trans    &trans    &trans    &trans    &trans            &trans    &trans    &trans    &trans    &trans    &trans    &trans       
+    &trans    &trans    &trans    &trans    &trans    &trans    &trans            &trans    &trans    &trans    &trans    &trans    &trans    &trans       
+    &trans    &trans    &trans    &trans    &trans    &trans    &trans            &trans    &trans    &trans    &trans    &trans    &trans    &trans       
+    &trans    &trans    &trans    &trans    &trans    &trans                                &trans    &trans    &trans    &trans    &trans    &trans      
+    &trans    &trans    &trans    &trans    &trans                                                    &trans    &trans    &trans    &trans    &trans       
+                                                &trans    &trans                      &trans    &trans
+                                            &trans    &trans   &trans             &trans    &trans    &trans                  
             >;
         };
 
@@ -78,11 +124,11 @@
 // | LWIN | LALT | SPACE| LCTRL| RET  |                               | RSHFT| RET  | SPACE| RALT | RWIN |
 
             bindings = <
-    &trans    &trans        &trans           &trans         &trans          &trans    &trans            &trans    &trans    &trans              &trans          &trans          &trans             &trans       
-    &trans    &kp HOME      &kp PAGE_DOWN    &kp PAGE_UP    &kp END         &trans    &trans            &trans    &trans    &kp LEFT_BRACKET    &kp LEFT_BRACE  &kp RIGHT_BRACE &kp RIGHT_BRACKET  &trans       
-    &trans    &kp LEFT      &kp DOWN         &kp UP         &kp RIGHT       &trans    &trans            &trans    &trans    &kp LS(COMMA)       &kp LPAR        &kp RPAR        &kp LS(DOT)        &trans       
-    &trans    &kp WORD_LEFT &kp WORD_DOWN    &kp WORD_UP    &kp WORD_RIGHT  &trans                                &trans    &trans              &trans          &trans          &trans             &trans      
-    &trans    &trans        &trans           &trans         &trans                                                          &trans              &trans          &trans          &trans             &trans       
+    &trans    &trans         &trans           &trans         &trans          &trans    &trans            &trans    &trans    &trans              &trans          &trans          &trans             &trans       
+    &trans    &kp LINE_START &kp PAGE_DOWN    &kp PAGE_UP    &kp LINE_END    &trans    &trans            &trans    &trans    &kp LEFT_BRACKET    &kp LEFT_BRACE  &kp RIGHT_BRACE &kp RIGHT_BRACKET  &trans       
+    &trans    &kp LEFT       &kp DOWN         &kp UP         &kp RIGHT       &trans    &trans            &trans    &trans    &kp LS(COMMA)       &kp LPAR        &kp RPAR        &kp LS(DOT)        &trans       
+    &trans    &kp WORD_LEFT  &kp WORD_DOWN    &kp WORD_UP    &kp WORD_RIGHT  &trans                                &trans    &trans              &trans          &trans          &trans             &trans      
+    &trans    &trans         &trans           &trans         &trans                                                          &trans              &trans          &trans          &trans             &trans       
                                                         &trans    &trans                      &trans    &trans
                                                     &trans    &trans   &trans             &trans    &trans    &trans                  
             >;
