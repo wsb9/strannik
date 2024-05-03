@@ -28,8 +28,23 @@
             bindings = <&kp MY_CUT>;
             key-positions = <20 34>;
         };
-    };
 
+        cb_spdot {
+            bindings = <&kp KP_DOT &kp SPACE>;
+            key-positions = <72 73>;
+        };
+
+        word_bspc {
+            bindings = <&kp WORD_BSPC>;
+            key-positions = <64 68>;
+        };
+        
+        line_bspc {
+            bindings = <&kp LINE_BSPC>;
+            key-positions = <68 69>; 
+        };
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
@@ -43,13 +58,13 @@
 // | LWIN | LALT | SPACE| LCTRL| RET  |                               | RSHFT| RET  | SPACE| RALT | RWIN |
 
             bindings = <
-    &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6            &kp N7         &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC
-    &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &kp MY_COPY       &kp MY_REFRESH &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT
-    &kp RET   &kp A     &kp S     &kp D     &kp F     &kp G     &kp MY_PASTE      &kp MY_BUILD   &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
-    &kp RET   &kp Z     &kp X     &kp C     &kp V     &kp B                                      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp BSLH
-    &kp UNDER &kp LCTRL &kp LALT  &kp LWIN  &mo ARROW                                                      &mo ARROW &kp SPACE &kp SPACE &kp SPACE &kp SPACE
-                                                &kp SPACE &kp LSHIFT                  &kp RSHIFT &kp SPACE
-                                            &kp LALT  &kp LWIN &kp LCTRL          &kp BSLH  &kp RWIN  &kp RALT                
+    &kp ESC         &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6            &kp N7         &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC
+    &kp TAB         &kp Q     &kp W     &kp E     &kp R     &kp T     &kp MY_COPY       &kp MY_REFRESH &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT
+    &kp RET         &kp A     &kp S     &kp D     &kp F     &kp G     &kp MY_PASTE      &kp MY_BUILD   &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+    &kp RET         &kp Z     &kp X     &kp C     &kp V     &kp B                                      &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp BSLH
+    &kp MY_LANG_EN  &kp LCTRL &kp LALT  &kp LWIN  &mo ARROW                                                      &mo ARROW &kp SPACE &kp SPACE &kp SPACE &kp MY_LANG_RU
+                                                &kp LSHIFT &kp LCTRL                  &kp RSHIFT &kp SPACE
+                                            &kp BSPC  &kp LWIN &kp LALT            &kp COMMA &kp DOT &kp SPACE              
             >;
         };
 
@@ -63,11 +78,11 @@
 // | LWIN | LALT | SPACE| LCTRL| RET  |                               | RSHFT| RET  | SPACE| RALT | RWIN |
 
             bindings = <
-    &trans    &trans        &trans           &trans         &trans          &trans    &trans            &trans    &trans    &trans    &trans    &trans    &trans    &trans       
-    &trans    &kp HOME      &kp PAGE_DOWN    &kp PAGE_UP    &kp END         &trans    &trans            &trans    &trans    &trans    &trans    &trans    &trans    &trans       
-    &trans    &kp LEFT      &kp DOWN         &kp UP         &kp RIGHT       &trans    &trans            &trans    &trans    &trans    &trans    &trans    &trans    &trans       
-    &trans    &kp WORD_LEFT &kp WORD_DOWN    &kp WORD_UP    &kp WORD_RIGHT  &trans                                &trans    &trans    &trans    &trans    &trans    &trans      
-    &trans    &trans        &trans           &trans         &trans                                                          &trans    &trans    &trans    &trans    &trans       
+    &trans    &trans        &trans           &trans         &trans          &trans    &trans            &trans    &trans    &trans              &trans          &trans          &trans             &trans       
+    &trans    &kp HOME      &kp PAGE_DOWN    &kp PAGE_UP    &kp END         &trans    &trans            &trans    &trans    &kp LEFT_BRACKET    &kp LEFT_BRACE  &kp RIGHT_BRACE &kp RIGHT_BRACKET  &trans       
+    &trans    &kp LEFT      &kp DOWN         &kp UP         &kp RIGHT       &trans    &trans            &trans    &trans    &kp LS(COMMA)       &kp LPAR        &kp RPAR        &kp LS(DOT)        &trans       
+    &trans    &kp WORD_LEFT &kp WORD_DOWN    &kp WORD_UP    &kp WORD_RIGHT  &trans                                &trans    &trans              &trans          &trans          &trans             &trans      
+    &trans    &trans        &trans           &trans         &trans                                                          &trans              &trans          &trans          &trans             &trans       
                                                         &trans    &trans                      &trans    &trans
                                                     &trans    &trans   &trans             &trans    &trans    &trans                  
             >;

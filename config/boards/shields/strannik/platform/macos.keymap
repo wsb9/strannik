@@ -4,6 +4,10 @@
 #define WORD_RIGHT LA(RIGHT)
 #define WORD_UP LA(UP)
 #define WORD_DOWN LA(DOWN)
+#define LINE_START LG(LEFT)
+#define LINE_END LG(RIGHT)
+#define WORD_BSPC LA(BSPC)
+#define LINE_BSPC LG(BSPC)
 
 // basic shortcuts
 // #define CUT LG(X)
@@ -21,3 +25,5 @@
 #define MY_SAVE LG(SEMI)
 #define MY_BUILD LG(N)
 #define MY_REFRESH LG(O)
+#define MY_LANG_EN F11
+#define MY_LANG_RU F12
