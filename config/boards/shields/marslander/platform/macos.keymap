@@ -1,0 +1,23 @@
+
+// fast arrows
+#define WORD_LEFT LA(LEFT)
+#define WORD_RIGHT LA(RIGHT)
+#define WORD_UP LA(UP)
+#define WORD_DOWN LA(DOWN)
+
+// basic shortcuts
+// #define CUT LG(X)
+// #define COPY LG(C)
+// #define PASTE LG(V)
+// #define SELECT_ALL LG(A)
+// #define SAVE LG(S)
+// #define BUILD LG(B)
+// #define REFRESH LG(R)
+
+#define MY_CUT LG(B)
+#define MY_COPY LG(I)
+#define MY_PASTE LG(DOT)
+#define SELECT_ALL LG(A)
+#define MY_SAVE LG(SEMI)
+#define MY_BUILD LG(N)
+#define MY_REFRESH LG(O)
