@@ -1,20 +1,20 @@
-if SHIELD_MARSLANDER_LEFT
+if SHIELD_STRANNIK_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Marslander"
+    default "Strannik"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_MARSLANDER_RIGHT
+if SHIELD_STRANNIK_RIGHT
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
     default n
 
 endif
 
-if SHIELD_MARSLANDER_LEFT || SHIELD_MARSLANDER_RIGHT
+if SHIELD_STRANNIK_LEFT || SHIELD_STRANNIK_RIGHT
 
 config ZMK_SPLIT
     default y

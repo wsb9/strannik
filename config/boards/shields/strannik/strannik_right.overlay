@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "marslander.dtsi"
+#include "strannik.dtsi"
 
 &default_transform {
 	col-offset = <7>;
